@@ -8,11 +8,25 @@ Briefly describe what this Java console application does. Mention its purpose an
 
 ## User Stories
 
-List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
+- As a user, I want to search for vehicles within a customer's price range so that I can show them affordable options
 
-- As a user, I want to be able to input my data, so that the application can process it accordingly.
-- As a user, I want to receive immediate feedback, so I can understand what to do next.
+- As a user, I want to search for vehicles by make and model, so that I can help customers find the exact type of car they’re looking for.
 
+- As a user, I want to find vehicles by year range, so I can help customers find cars that meet their preferences.
+
+- As a user, I want to search for vehicles by color, so that I can help customers find cars that match their preferences.
+
+- As a user, I want to search for vehicles by mileage range, so that I can help customers find cars with mileage that fits their expectations.
+
+- As a user, I want to search vehicles by type so that I can help customers find cars that match their preferences.
+
+- As a user, I want to view all vehicles so that I can see the entire inventory.
+
+- As a user, I want the option to add a vehicle so that I can keep the inventory up to date.
+
+- As a user, I want the option to remove a vehicle so that I can keep the inventory up to date.
+
+- As a user, I want the option to quit the application so that I can exit the program when I'm finished using it.
 ## Setup
 
 Instructions on how to set up and run the project using IntelliJ IDEA.
@@ -66,6 +80,6 @@ List resources such as tutorials, articles, or documentation that helped you dur
 
 Express gratitude towards those who provided help, guidance, or resources:
 
-- Thank you to [Mentor's Name] for continuous support and guidance.
+- Thank you to Raymond, for continuous support and guidance.
 - A special thanks to all teammates for their dedication and teamwork.
  
