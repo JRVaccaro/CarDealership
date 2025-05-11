@@ -51,9 +51,11 @@ public class UserInterface {
                     break;
 
                 case 4:
+                    processGetByColorRequest(scanner);
                     break;
 
                 case 5:
+                    processGetByMileageRequest(scanner);
                     break;
 
                 case 6:
@@ -126,5 +128,22 @@ public class UserInterface {
 
             displayVehicles(vehicles);
         }
+        private void processGetByColorRequest(Scanner scanner){
+            System.out.println("Enter the color: ");
+            String color = scanner.nextLine().trim();
 
+            ArrayList<Vehicle> vehicles = dealership.getVehiclesByColor(color);
+
+            displayVehicles(vehicles);
+        }
+        private void processGetByMileageRequest(Scanner scanner){
+            System.out.println("Enter the minimum mileage: ");
+            int minimumMileage = scanner.nextInt();
+            System.out.println("Enter the maximum mileage: ");
+            int maximumMileage = scanner.nextInt();
+
+            ArrayList<Vehicle> vehicles = dealership.getVehiclesByMileage(minimumMileage, maximumMileage);
+
+            displayVehicles(vehicles);
+        }
 }
