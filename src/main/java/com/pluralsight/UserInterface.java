@@ -59,9 +59,11 @@ public class UserInterface {
                     break;
 
                 case 6:
+                    processGetByVehicleTypeRequest(scanner);
                     break;
 
                 case 7:
+                    processGetAllVehiclesRequest();
                     break;
 
                 case 8:
@@ -145,5 +147,18 @@ public class UserInterface {
             ArrayList<Vehicle> vehicles = dealership.getVehiclesByMileage(minimumMileage, maximumMileage);
 
             displayVehicles(vehicles);
+        }
+        private void processGetByVehicleTypeRequest(Scanner scanner){
+            System.out.println("Enter the vehicle type: ");
+            String vehicleType = scanner.nextLine().trim();
+
+            ArrayList<Vehicle> vehicles = dealership.getVehiclesByType(vehicleType);
+
+            displayVehicles(vehicles);
+        }
+        private void processGetAllVehiclesRequest(){
+        ArrayList<Vehicle> vehicles = dealership.getAllVehicles();
+
+        displayVehicles(vehicles);
         }
 }
