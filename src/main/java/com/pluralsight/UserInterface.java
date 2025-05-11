@@ -43,9 +43,11 @@ public class UserInterface {
                     break;
 
                 case 2:
+                    processGetByMakeModelRequest(scanner);
                     break;
 
                 case 3:
+                    processGetByYearRequest(scanner);
                     break;
 
                 case 4:
@@ -101,6 +103,26 @@ public class UserInterface {
             double maximumPrice = scanner.nextDouble();
 
             ArrayList<Vehicle> vehicles = dealership.getVehiclesByPriceRange(minimumPrice, maximumPrice);
+
+            displayVehicles(vehicles);
+        }
+        private void processGetByMakeModelRequest(Scanner scanner){
+            System.out.println("Enter the make: ");
+            String make = scanner.nextLine().trim();
+            System.out.println("Enter the model: ");
+            String model = scanner.nextLine().trim();
+
+            ArrayList<Vehicle> vehicles = dealership.getVehiclesByMakeModel(make, model);
+
+            displayVehicles(vehicles);
+        }
+        private void processGetByYearRequest(Scanner scanner){
+            System.out.println("Enter the minimum year: ");
+            int minimumYear = scanner.nextInt();
+            System.out.println("Enter the maximum year: ");
+            int maximumYear = scanner.nextInt();
+
+            ArrayList<Vehicle> vehicles = dealership.getVehiclesByYear(minimumYear, maximumYear);
 
             displayVehicles(vehicles);
         }
