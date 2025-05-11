@@ -63,11 +63,33 @@ public class Dealership {
         return matches;
 
     }
+
     // Derived getter which is returning a filtered list of vehicles that match
     public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
         ArrayList<Vehicle> matches = new ArrayList<>();
         for (Vehicle vehicle : vehicles) {
             if (vehicle.getYear() >= min && vehicle.getYear() <= max) {
+                matches.add(vehicle);
+            }
+        }
+        return matches;
+    }
+
+    // Derived getter which is returning a filtered list of vehicles that match
+    public ArrayList<Vehicle> getVehiclesByColor(String color) {
+        ArrayList<Vehicle> matches = new ArrayList<>();
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getColor().equalsIgnoreCase(color)) {
+                matches.add(vehicle);
+            }
+        }
+        return matches;
+    }
+
+    public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
+        ArrayList<Vehicle> matches = new ArrayList<>();
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getOdometer() >= min && vehicle.getOdometer() <= max) {
                 matches.add(vehicle);
             }
         }
