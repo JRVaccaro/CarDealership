@@ -86,6 +86,7 @@ public class Dealership {
         return matches;
     }
 
+    //derived getter which is returning a filtered list of vehicles that match
     public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
         ArrayList<Vehicle> matches = new ArrayList<>();
         for (Vehicle vehicle : vehicles) {
@@ -95,4 +96,20 @@ public class Dealership {
         }
         return matches;
     }
+
+    //derived getter which is returning a filtered list of vehicles that match
+    public ArrayList<Vehicle> getVehiclesByType(String vehicleType) {
+        ArrayList<Vehicle> matches = new ArrayList<>();
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getVehicleType().equalsIgnoreCase(vehicleType)) {
+                matches.add(vehicle);
+            }
+        }
+        return matches;
+    }
+    public ArrayList<Vehicle> getAllVehicles(){
+        //returning existing list
+        return vehicles;
+    }
+   
 }
