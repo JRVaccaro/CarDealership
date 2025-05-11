@@ -111,5 +111,10 @@ public class Dealership {
         //returning existing list
         return vehicles;
     }
-   
+    public void addVehicle(Vehicle vehicle){
+    vehicles.add(vehicle);
+    }
+    public void removeVehicle(Vehicle vehicle){
+        vehicles.remove(vehicle);
+    }
 }
