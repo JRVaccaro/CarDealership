@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -13,13 +14,13 @@ public class UserInterface {
     this.dealership = fileManager.getDealership();
 
     }
-    public void display(){
+    public void display() {
         init();
         Scanner scanner = new Scanner(System.in);
 
         boolean running = true;
 
-        while (running){
+        while (running) {
             System.out.println("Dealership Menu");
             System.out.println("1: Find vehicles within a price range.");
             System.out.println("2: Find vehicles by make / model.");
@@ -36,8 +37,9 @@ public class UserInterface {
 
             int choice = scanner.nextInt();
 
-            switch (choice){
+            switch (choice) {
                 case 1:
+                    processGetByPriceRequest(scanner);
                     break;
 
                 case 2:
@@ -74,6 +76,33 @@ public class UserInterface {
             }
         }
 
-
+        }
+        //Helper method
+        private void displayVehicles (ArrayList <Vehicle> vehicles) {
+            if (vehicles.isEmpty()){
+                System.out.println("No vehicles found.");
+        }else{
+            for (Vehicle vehicle : vehicles) {
+                System.out.println("VIN: " + vehicle.getVin());
+                System.out.println("Year: " + vehicle.getYear());
+                System.out.println("Make: " + vehicle.getMake());
+                System.out.println("Model: " + vehicle.getModel());
+                System.out.println("Type: " + vehicle.getVehicleType());
+                System.out.println("Color:" + vehicle.getColor());
+                System.out.println("Odometer: " + vehicle.getOdometer());
+                System.out.println("Price: $" + vehicle.getPrice());
+            }
+        }
     }
+    private void processGetByPriceRequest(Scanner scanner){
+            System.out.println("Enter the minimum price: ");
+            double minimumPrice = scanner.nextDouble();
+            System.out.println("Enter the maximum price: ");
+            double maximumPrice = scanner.nextDouble();
+
+            ArrayList<Vehicle> vehicles = dealership.getVehiclesByPriceRange(minimumPrice, maximumPrice);
+
+            displayVehicles(vehicles);
+        }
+
 }
