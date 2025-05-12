@@ -11,16 +11,8 @@ public class UserInterface {
         this.dealership = dealership;
     }
 
-    //helper method
-    private void init(){
-    //Get dealership data
-    DealershipFileManager fileManager = new DealershipFileManager();
 
-    this.dealership = fileManager.getDealership();
-
-    }
     public void display() {
-        init();
         Scanner scanner = new Scanner(System.in);
 
         boolean running = true;
@@ -88,20 +80,23 @@ public class UserInterface {
                     System.out.println("Invalid option.");
                     break;
             }
+            scanner.close();
         }
 
         }
-        //Helper method
+        //Helper method to display list of vehicles
         private void displayVehicles (ArrayList <Vehicle> vehicles) {
             if (vehicles.isEmpty()){
                 System.out.println("No vehicles found.");
         }else{
+                //loop through each vehicle and display details
             for (Vehicle vehicle : vehicles) {
                 System.out.println(vehicle.getVin() + "|" + vehicle.getYear() + "|" + vehicle.getMake() + "|" + vehicle.getModel() + "|"
                         + vehicle.getVehicleType() + "|" + vehicle.getColor() + "|" + vehicle.getOdometer() + "|" + vehicle.getPrice());
             }
         }
     }
+    //Finds vehicles within price range
     private void processGetByPriceRequest(Scanner scanner){
             System.out.println("Enter the minimum price: ");
             double minimumPrice = scanner.nextDouble();
@@ -109,20 +104,24 @@ public class UserInterface {
             double maximumPrice = scanner.nextDouble();
             scanner.nextLine();
 
+            //Gets and displays vehicles in price range
             ArrayList<Vehicle> vehicles = dealership.getVehiclesByPriceRange(minimumPrice, maximumPrice);
 
             displayVehicles(vehicles);
         }
+        //Finds vehicles by make and model
         private void processGetByMakeModelRequest(Scanner scanner){
             System.out.println("Enter the make: ");
             String make = scanner.nextLine().trim();
             System.out.println("Enter the model: ");
             String model = scanner.nextLine().trim();
 
+            //Gets and displays vehicles with the given make and model
             ArrayList<Vehicle> vehicles = dealership.getVehiclesByMakeModel(make, model);
 
             displayVehicles(vehicles);
         }
+        //Finds vehicles by year range
         private void processGetByYearRequest(Scanner scanner){
             System.out.println("Enter the minimum year: ");
             int minimumYear = scanner.nextInt();
@@ -130,18 +129,22 @@ public class UserInterface {
             int maximumYear = scanner.nextInt();
             scanner.nextLine();
 
+            //Gets and displays vehicles by year range
             ArrayList<Vehicle> vehicles = dealership.getVehiclesByYear(minimumYear, maximumYear);
 
             displayVehicles(vehicles);
         }
+        //Finds vehicles by color
         private void processGetByColorRequest(Scanner scanner){
             System.out.println("Enter the color: ");
             String color = scanner.nextLine().trim();
 
+            //Gets and displays with entered color
             ArrayList<Vehicle> vehicles = dealership.getVehiclesByColor(color);
 
             displayVehicles(vehicles);
         }
+        //Finds vehicles by mileage range
         private void processGetByMileageRequest(Scanner scanner){
             System.out.println("Enter the minimum mileage: ");
             int minimumMileage = scanner.nextInt();
@@ -149,23 +152,28 @@ public class UserInterface {
             int maximumMileage = scanner.nextInt();
             scanner.nextLine();
 
+            //Gets and displays vehicles within entered mileage range
             ArrayList<Vehicle> vehicles = dealership.getVehiclesByMileage(minimumMileage, maximumMileage);
 
             displayVehicles(vehicles);
         }
+        //Finds vehicles by type
         private void processGetByVehicleTypeRequest(Scanner scanner){
             System.out.println("Enter the vehicle type: ");
             String vehicleType = scanner.nextLine().trim();
 
+            //Gets and displays vehicles of entered type
             ArrayList<Vehicle> vehicles = dealership.getVehiclesByType(vehicleType);
 
             displayVehicles(vehicles);
         }
+        //Lists all vehicles
         private void processGetAllVehiclesRequest(){
         ArrayList<Vehicle> vehicles = dealership.getAllVehicles();
 
         displayVehicles(vehicles);
         }
+        //Adds a new vehicle to dealership
         private void processAddVehicleRequest(Scanner scanner){
             System.out.println("Enter the VIN: ");
             int vin = scanner.nextInt();
@@ -194,6 +202,7 @@ public class UserInterface {
             double price = scanner.nextDouble();
             scanner.nextLine();
 
+            //Creating a new vehicle to add to dealership
             Vehicle newVehicle = new Vehicle(vin,year,make, model, vehicleType,color,odometer, price);
 
             dealership.addVehicle(newVehicle);
@@ -205,11 +214,13 @@ public class UserInterface {
             fileManager.saveDealership(dealership);
 
         }
+        //Removes a vehicles by VIN
         private void processRemoveVehicleRequest(Scanner scanner){
             System.out.println("Enter the VIN of the vehicle to remove: ");
             int vin = scanner.nextInt();
             scanner.nextLine();
 
+        //Checking if vehicle exists
         ArrayList<Vehicle> vehicles = dealership.getAllVehicles();
 
         boolean found = false;

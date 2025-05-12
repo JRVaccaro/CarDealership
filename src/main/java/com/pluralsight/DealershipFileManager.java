@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class DealershipFileManager {
 
+    //Loads dealership data from file and returns a Dealership object
     public Dealership getDealership() {
         Dealership dealership = null;
         String line;
@@ -23,6 +24,7 @@ public class DealershipFileManager {
                 String phone = parts[2];
                 dealership = new Dealership(name, address, phone);
             }
+            //Reads remaining lines for vehicle's details
             while ((line = reader.readLine()) != null) {
                 String[] fields = line.split("\\|");
 
@@ -35,6 +37,7 @@ public class DealershipFileManager {
                 int odometer = Integer.parseInt(fields[6]);
                 double price = Double.parseDouble(fields[7]);
 
+                //Creates a vehicle object and adds to dealership
                 Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
                 dealership.addVehicle(vehicle);
             }
@@ -46,6 +49,7 @@ public class DealershipFileManager {
         return dealership;
     }
 
+    //Saves dealership data to file
     public void saveDealership(Dealership dealership) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("dealership.csv"));

@@ -107,13 +107,16 @@ public class Dealership {
         }
         return matches;
     }
+    //Returns all vehicles currently in dealership
     public ArrayList<Vehicle> getAllVehicles(){
         //returning existing list
         return vehicles;
     }
+    //Adds new vehicle to dealership list
     public void addVehicle(Vehicle vehicle){
     vehicles.add(vehicle);
     }
+    //Removes a vehicle from dealership list
     public void removeVehicle(Vehicle vehicle){
         vehicles.remove(vehicle);
     }
