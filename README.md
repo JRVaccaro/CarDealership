@@ -1,10 +1,10 @@
-# Project Title
+# Car Dealership
 
 ## Description of the Project
 
-Briefly describe what this Java console application does. Mention its purpose and who the intended users are. Explain the main functionality and what problems it aims to solve.
+- This is a simple Java console app that helps a car dealership keep track of its vehicle inventory. You can search for cars by things like price, make/model, year, color, mileage, or type. It also lets you list all cars, add new ones, or remove ones that are sold. The app loads the dealership info from a CSV file when it starts and saves any changes back to the file.
 
-![Class Diagram](path/to/your/class_diagram.png)
+![class diagram.png](Class%20Diagram/class%20diagram.png)
 
 ## User Stories
 
@@ -28,8 +28,19 @@ Briefly describe what this Java console application does. Mention its purpose an
 
 - As a user, I want the option to quit the application so that I can exit the program when I'm finished using it.
 ## Setup
+**Using the Application**
+You will be prompted to pick from the following:
 
-Instructions on how to set up and run the project using IntelliJ IDEA.
+- 1: Find vehicles within a price range.
+- 2: Find vehicles by make/model.
+- 3: Find vehicles by year range.
+- 4: Find vehicles by color.
+- 5: Find vehicles by mileage range.
+- 6: Find vehicles by type.
+- 7: List all vehicles.
+- 8: Add a vehicle.
+- 9: Remove a vehicle
+- 99: Exit
 
 ### Prerequisites
 
@@ -44,7 +55,7 @@ Follow these steps to get your application running within IntelliJ IDEA:
 2. Select "Open" and navigate to the directory where you cloned or downloaded the project.
 3. After the project opens, wait for IntelliJ to index the files and set up the project.
 4. Find the main class with the `public static void main(String[] args)` method.
-5. Right-click on the file and select 'Run 'YourMainClassName.main()'' to start the application.
+5. Right-click on the file and select 'Run 'Program.main()'' to start the application.
 
 ## Technologies Used
 
@@ -53,33 +64,29 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Demo
 
-Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
 
-![Application Screenshot](path/to/your/screenshot.png)
 
 ## Future Work
 
 Outline potential future enhancements or functionalities you might consider adding:
 
-- Additional feature to be developed.
-- Improvement of current functionalities.
+- Improve the menu system with better navigation and error handling.
+- Add more vehicle search filters.
 
 ## Resources
 
-List resources such as tutorials, articles, or documentation that helped you during the project.
-
-- [Java Programming Tutorial](https://www.example.com)
-- [Effective Java](https://www.example.com)
-
+- [ChatGPT](https://openai.com/chatgpt) by OpenAI – for assistance with coding guidance, debugging, and understanding Java concepts.
+- [GeeksforGeeks](https://www.geeksforgeeks.org/) – for reference articles and tutorials that helped deepen my understanding of programming topics.
+- [Ray Maroun's GitHub](https://github.com/RayMaroun) – for code examples and guidance throughout the project.
+- [Potato Sensei GPT](https://chatgpt.com/g/g-681d378b0c90819197b16e49abe384ec-potato-sensei) For help understanding Java concepts and getting guidance on my code.
+- [Oracle Java User Interface Guide](https://www.oracle.com/java/technologies/jpl1-building-userinterface.html) – Helped me understand how to structure and build the user interface for my Java console app
 ## Team Members
 
-- **Name 1** - Specific contributions or roles.
-- **Name 2** - Specific contributions or roles.
+- **Julianna Vaccaro** -Developed this project as part of Java programming course to practice file handling, user input, and menu-driven applications.
+
 
 ## Thanks
 
-Express gratitude towards those who provided help, guidance, or resources:
-
-- Thank you to Raymond, for continuous support and guidance.
-- A special thanks to all teammates for their dedication and teamwork.
+- Thank you to my instructor, Raymond, for providing the class diagram and for your continuous support and guidance throughout the project.
+- Thank you to my peers for always being willing to listen and support me when I needed it.
  

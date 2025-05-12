@@ -6,6 +6,11 @@ import java.util.Scanner;
 public class UserInterface {
     private Dealership dealership;
 
+    //Constructor that sets up the UserInterface with given Dealership object
+    public UserInterface(Dealership dealership) {
+        this.dealership = dealership;
+    }
+
     //helper method
     private void init(){
     //Get dealership data
