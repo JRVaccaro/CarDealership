@@ -97,14 +97,8 @@ public class UserInterface {
                 System.out.println("No vehicles found.");
         }else{
             for (Vehicle vehicle : vehicles) {
-                System.out.println("VIN: " + vehicle.getVin());
-                System.out.println("Year: " + vehicle.getYear());
-                System.out.println("Make: " + vehicle.getMake());
-                System.out.println("Model: " + vehicle.getModel());
-                System.out.println("Type: " + vehicle.getVehicleType());
-                System.out.println("Color:" + vehicle.getColor());
-                System.out.println("Odometer: " + vehicle.getOdometer());
-                System.out.println("Price: $" + vehicle.getPrice());
+                System.out.println(vehicle.getVin() + "|" + vehicle.getYear() + "|" + vehicle.getMake() + "|" + vehicle.getModel() + "|"
+                        + vehicle.getVehicleType() + "|" + vehicle.getColor() + "|" + vehicle.getOdometer() + "|" + vehicle.getPrice());
             }
         }
     }

@@ -59,16 +59,14 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Technologies Used
 
-- Java: Mention the version you are using.
-- Any additional libraries or frameworks used in the project.
+- Java 17
+- Intellij IDEA
 
 ## Demo
 
-
+![demo for car dealership.gif](Gif%20Demo/demo%20for%20car%20dealership.gif)
 
 ## Future Work
-
-Outline potential future enhancements or functionalities you might consider adding:
 
 - Improve the menu system with better navigation and error handling.
 - Add more vehicle search filters.
