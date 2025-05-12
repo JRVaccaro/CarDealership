@@ -36,6 +36,7 @@ public class UserInterface {
 
 
             int choice = scanner.nextInt();
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -107,6 +108,7 @@ public class UserInterface {
             double minimumPrice = scanner.nextDouble();
             System.out.println("Enter the maximum price: ");
             double maximumPrice = scanner.nextDouble();
+            scanner.nextLine();
 
             ArrayList<Vehicle> vehicles = dealership.getVehiclesByPriceRange(minimumPrice, maximumPrice);
 
@@ -127,6 +129,7 @@ public class UserInterface {
             int minimumYear = scanner.nextInt();
             System.out.println("Enter the maximum year: ");
             int maximumYear = scanner.nextInt();
+            scanner.nextLine();
 
             ArrayList<Vehicle> vehicles = dealership.getVehiclesByYear(minimumYear, maximumYear);
 
@@ -145,6 +148,7 @@ public class UserInterface {
             int minimumMileage = scanner.nextInt();
             System.out.println("Enter the maximum mileage: ");
             int maximumMileage = scanner.nextInt();
+            scanner.nextLine();
 
             ArrayList<Vehicle> vehicles = dealership.getVehiclesByMileage(minimumMileage, maximumMileage);
 
@@ -189,6 +193,7 @@ public class UserInterface {
 
             System.out.println("Enter the price: ");
             double price = scanner.nextDouble();
+            scanner.nextLine();
 
             Vehicle newVehicle = new Vehicle(vin,year,make, model, vehicleType,color,odometer, price);
 
@@ -196,10 +201,15 @@ public class UserInterface {
 
             System.out.println("Vehicle added.");
 
+            //Saving to the file
+            DealershipFileManager fileManager = new DealershipFileManager();
+            fileManager.saveDealership(dealership);
+
         }
         private void processRemoveVehicleRequest(Scanner scanner){
             System.out.println("Enter the VIN of the vehicle to remove: ");
             int vin = scanner.nextInt();
+            scanner.nextLine();
 
         ArrayList<Vehicle> vehicles = dealership.getAllVehicles();
 
@@ -210,6 +220,11 @@ public class UserInterface {
                 dealership.removeVehicle(vehicle);
                 System.out.println("Vehicle removed.");
                 found = true;
+
+                //saving to file
+                DealershipFileManager fileManager = new DealershipFileManager();
+                fileManager.saveDealership(dealership);
+
                 break;
 
             }
