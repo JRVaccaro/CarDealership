@@ -67,9 +67,11 @@ public class UserInterface {
                     break;
 
                 case 8:
+                    processAddVehicleRequest(scanner);
                     break;
 
                 case 9:
+                    processRemoveVehicleRequest(scanner);
                     break;
 
                 case 99:
@@ -160,5 +162,61 @@ public class UserInterface {
         ArrayList<Vehicle> vehicles = dealership.getAllVehicles();
 
         displayVehicles(vehicles);
+        }
+        private void processAddVehicleRequest(Scanner scanner){
+            System.out.println("Enter the VIN: ");
+            int vin = scanner.nextInt();
+
+            System.out.println("Enter the year: ");
+            int year = scanner.nextInt();
+
+            scanner.nextLine();
+
+            System.out.println("Enter the make: ");
+            String make = scanner.nextLine().trim();
+
+            System.out.println("Enter the model: ");
+            String model = scanner.nextLine().trim();
+
+            System.out.println("Enter the vehicle type: ");
+            String vehicleType = scanner.nextLine().trim();
+
+            System.out.println("Enter the color: ");
+            String color = scanner.nextLine().trim();
+
+            System.out.println("Enter the odometer reading: ");
+            int odometer = scanner.nextInt();
+
+            System.out.println("Enter the price: ");
+            double price = scanner.nextDouble();
+
+            Vehicle newVehicle = new Vehicle(vin,year,make, model, vehicleType,color,odometer, price);
+
+            dealership.addVehicle(newVehicle);
+
+            System.out.println("Vehicle added.");
+
+        }
+        private void processRemoveVehicleRequest(Scanner scanner){
+            System.out.println("Enter the VIN of the vehicle to remove: ");
+            int vin = scanner.nextInt();
+
+        ArrayList<Vehicle> vehicles = dealership.getAllVehicles();
+
+        boolean found = false;
+
+        for (Vehicle vehicle : vehicles){
+            if (vehicle.getVin() == vin){
+                dealership.removeVehicle(vehicle);
+                System.out.println("Vehicle removed.");
+                found = true;
+                break;
+
+            }
+
+        }
+        if (!found){
+            System.out.println("No vehicle found with that VIN");
+        }
         }
 }
