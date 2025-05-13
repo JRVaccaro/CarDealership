@@ -18,7 +18,7 @@ public class UserInterface {
         boolean running = true;
 
         while (running) {
-            System.out.println("Dealership Menu");
+            System.out.println("-------------Dealership Menu-------------");
             System.out.println("1: Find vehicles within a price range.");
             System.out.println("2: Find vehicles by make / model.");
             System.out.println("3: Find vehicles by year range.");
@@ -29,7 +29,7 @@ public class UserInterface {
             System.out.println("8: Add a vehicle.");
             System.out.println("9: Remove a vehicle");
             System.out.println("99: Exit");
-            System.out.print("Please select from the following.");
+            System.out.print("Please select from the following: ");
 
 
             int choice = scanner.nextInt();
@@ -80,7 +80,6 @@ public class UserInterface {
                     System.out.println("Invalid option.");
                     break;
             }
-            scanner.close();
         }
 
         }
@@ -115,6 +114,8 @@ public class UserInterface {
             String make = scanner.nextLine().trim();
             System.out.println("Enter the model: ");
             String model = scanner.nextLine().trim();
+
+
 
             //Gets and displays vehicles with the given make and model
             ArrayList<Vehicle> vehicles = dealership.getVehiclesByMakeModel(make, model);
